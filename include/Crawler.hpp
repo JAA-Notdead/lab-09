@@ -87,12 +87,12 @@ public:
                     std::cout << id << ": " << href.link << " - " << href.rang << std::endl;
                     hrefMuter.unlock();//  освобождаем поток
                 } else {
-                    hrefMuter.unlock();
+                    hrefMuter.unlock();//  освобождаем поток
                     break;
                 }
             }
             catch (...) {
-                hrefMuter.unlock();
+                hrefMuter.unlock();//  освобождаем поток
                 continue;
             }
         }
@@ -111,12 +111,12 @@ public:
                     if (page.empty())continue;
                     getImg(fromStrToNode(page)->root);
                 } else {
-                    imgMuter.unlock();
+                    imgMuter.unlock();//  освобождаем поток
                     break;
                 }
             }
             catch (...) {
-                imgMuter.unlock();
+                imgMuter.unlock();//  освобождаем поток
                 continue;
             }
         }
